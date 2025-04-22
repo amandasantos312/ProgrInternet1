@@ -1,0 +1,20 @@
+body {
+    background-color:rgb(245, 255, 106);
+}
+
+h1 {
+    text-align: center;  
+}
+
+.vermelho {
+    color: red;
+}
+
+.azul {
+    color:rgb(38, 0, 255);
+}
+
+.verde {
+    color:rgb(18, 125, 1);
+}
+
