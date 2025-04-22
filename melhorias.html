@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog do ADS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="conteiner">
+        <header>
+            <h1 id="titulo-principal">blog do ads</h1>
+            <span id="inicio-pagina"></span>
+        </header>
+        <div id="layout-flex">
+            <nav>
+                <h3>Seções</h3>
+                <ul>
+                  <li><a href="#box-model">Box Model</a></li>
+                  <li><a href="#campos-modernos">Campos Modernos</a></li>
+                  <li><a href="#buscas">Formulários de Busca</a></li>
+                  <li><a href="tabelas">Tabelas</a></li>
+                  <li><a href="#listas">Listas</a></li>
+                  <li><a href="#espacamentos">Espaçamentos</a></li>
+                  <li><a href="#cores">Cores</a></li>
+                  <li><a href="#simbolos">Símbolos</a></li>
+                  <li><a href="ifpi">Sobre o IFPI</a></li>
+                </ul>
+            </nav>
+            <main>
+                <article id="box-model">
+                    <h2>Box model</h2>
+                    <p>O box model define uma série de formatações que vão desde:</p>
+                    <ul>
+                        <li class="bordas">Bordas</li>
+                        <li class="margens">Margens</li>
+                        <li class="comprimento">Comprimento</li>
+                    </ul>
+
+                    <p class="autor-data">07/04/2025 - por Ely Miranda - <a href="#inicio-pagina">&uarr;</a></p>
+                </article>
+
+                <article id="campos-modernos">
+                    <h2>Campos mais modernos</h2>
+                    <form action="">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" nome="email" required>
+                        <br>
+                        <label for="cor">Cor</label>
+                        <input type="color" id="cor" name="cor" value="#ff0000">
+                        <br>
+                        <label for="data">Data</label>
+                        <input type="date" id="data" name="data" value="" required>
+                        <br>
+                        <label for="hora">Hora</label>
+                        <input type="time" id="hora" name="hora" value="" required>
+                        <br>
+                        <label for="nota">Nota</label>
+                        <input type="range" id="nota" name="nota" min="0" max="10" value="5" required>
+                        <div id="nota-atual"></div>
+                        <br>
+                        <label for="idade">Idade</label>
+                        <input type="number" id="idade" name="idade" min="0" max="120" value="18" required>
+                        <div id="nota-atual"></div>
+                        <br>
+                        <input type="submit" value="Validar">
+                    </form>
+                    <script>
+                        function mudaNota() {
+                            let nota = document.getElementById('nota').value;
+                            document.getElementById('nota-atual').innerText = nota; //
+                        }
+                        document.getElementById('nota').addEventListener('change', mudaNota);
+                        mudaNota();
+                    </script>
+                    <p class="autor-data">07/04/2025 - por Ely Miranda - <a href="#inicio-pagina">&uarr;</a></p>
+                </article>
+
+                <article>
+                    <h2>Formulário clássicos de busca</h2>
+                    <p>Busca no google</p>
+                    <form action="http://www.google.com/search" method="get">
+                        <input type="text" name="q" placeholder="Digite sua pesquisa">
+                        <br>
+                        <input type="radio" name="lr" value="lang_pt"> Português
+                        <input type="radio" name="lr" value="lang_en"> Inglês
+                        <input type="radio" name="lr" value="lang_fr"> Francês
+                        <input type="radio" name="lr" value="lang_es"> Espanhol
+                        <br>
+                        <input type="submit" value="Pesquisar">
+                    </form>
+
+                    <p>Busca no Mercado Livre</p>
+                    <form action="https://www.mercadolivre.com.br/jm/search" method="get">
+                        <input type="text" name="as_word" placeholder="Digite sua pesquisa">
+                        <input type="submit" value="Pesquisar">
+                    </form>
+
+                    <p>Busca na Amazon</p>
+                    <form action="https://www.amazon.com.br/s" method="get">
+                        <input type="text" name="field-keywords" placeholder="Digite sua pesquisa">
+                        <br>
+                        <select name="url" id="">
+                            <option value="search-alias=toys" selected>Brinquedos</option>
+                            <option value="search-alias=baby">Bebês</option>
+                            <option value="search-alias=stripbooks">Livros</option>
+                        </select>
+                        <input type="submit" value="Pesquisar">
+                    </form>
+
+                    <p class="autor-data">07/04/2025 - por Ely Miranda - <a href="#inicio-pagina">&uarr;</p>
+                </article>
+
+                <article>
+                    <h2>Tabelas</h2>
+                    <p>Uma tabela é uma coleção de dados organizados em linhas e colunas.</p>
+                    <p>Uma tabela pode ter um cabeçalho, um corpo e um rodapé.</p>
+                    <p>Uma tabela pode ter bordas, espaçamento e preenchimento.</p>
+                    <p>Uma tabela pode ter células mescladas.</p>
+
+                    <p>Uma tabela simples com apenas cabeçalho, linhas e colunas:</p>
+                    <table class="tabela-1">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Cidade</th>
+                        </tr>
+                        <tr>
+                            <td>João</td>
+                            <td>25</td>
+                            <td>Teresina</td>
+                        </tr>
+                        <tr>
+                            <td>Maria</td>
+                            <td>35</td>
+                            <td>Teresina</td>
+                        </tr>
+                        <tr>
+                            <td>José</td>
+                            <td>35</td>
+                            <td>Teresina</td>
+                        </tr>
+                        <!--</tbody>??-->
+                    </table>
+
+                    <p>Uma tabela simples como a anterior, porém com mais dados e linhas zebradas</p>
+                    <table class="tabela-2">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Cidade</th>
+                        </tr>
+                        <tr class="linha-branca">
+                            <td>João</td>
+                            <td>25</td>
+                            <td>Teresina</td>
+                        </tr>
+                        <tr>
+                            <td>José</td>
+                            <td>35</td>
+                            <td>Teresina</td>
+                        </tr>
+                    </table>
+
+
+
+
+
+                </article>
+
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>
