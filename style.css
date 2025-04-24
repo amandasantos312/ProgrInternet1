@@ -24,8 +24,8 @@ nav {
 }
 
 body {
-    background-image: linear-gradient(to left,rgb(232, 255, 230),rgb(234, 176, 187));
-    color:rgb(255, 255, 160);
+    background-image: linear-gradient(to left, #e8ffe6, #eab0bb);
+    color: #ffffa0;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
 }
@@ -47,7 +47,7 @@ body {
 }
 
 article, nav, aside {
-    background-color:rgb(250, 237, 231);
+    background-color: #faede7;
     color: black;
     padding: 1rem;
     margin-top: 2.0rem;
@@ -67,7 +67,7 @@ article, nav, aside {
 .autor-data {
     text-align: right;
     font-style: italic;
-    color: rgb(117, 108, 108)
+    color: #756c6c
 }
 
 .entre-linhas {
@@ -80,7 +80,7 @@ article, nav, aside {
 
 #titulo-principal {
     text-align: center;
-    background-image: linear-gradient(to left,rgb(200, 244, 218), #ffe5d9);
+    background-image: linear-gradient(to left, #c8f4da, #ffe5d9);
     font-size: 5rem;
     letter-spacing: 0.5rem;
     text-transform: uppercase;
@@ -146,7 +146,9 @@ h2 {
 footer {
     font-size: 1.5rem;
     padding: .5rem;
-    background-image: linear-gradient(to left, black, gray);
+    background-image: linear-gradient(to left, #c8f4da, #ffe5d9);
+    color: black;
+    text-align: center;
 }
 
 .lista-ordenada {
