@@ -24,17 +24,13 @@ nav {
 }
 
 body {
-    background-image: linear-gradient(to left, gray, black);
-    color: #ffffff;
+    background-image: linear-gradient(to left,rgb(232, 255, 230),rgb(234, 176, 187));
+    color:rgb(255, 255, 160);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
-   
 }
-
-/*
-  marging, padding border podem ser configuradas individualmente ou pela ordem,
-  preferencialmente no sentido horário: top, right, bottom, left
-  */
+/*marging, padding border podem ser configuradas individualmente ou pela ordem,
+  preferencialmente no sentido horário: top, right, bottom, left*/
 .bordas {
     border-top: 1px dotted gray;
     border-right: 1px solid red;
@@ -51,18 +47,17 @@ body {
 }
 
 article, nav, aside {
-    background-color: lightgray;
+    background-color:rgb(250, 237, 231);
     color: black;
     padding: 1rem;
     margin-top: 2.0rem;
     margin-bottom: 1.0rem;
     border-radius: 1%;
     box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
-    
 }
+
 .comprimento {
     border: 1px solid gray;
-    
 }
 
 .justificado {
@@ -85,7 +80,7 @@ article, nav, aside {
 
 #titulo-principal {
     text-align: center;
-    background-image: linear-gradient(to left, black, gray);
+    background-image: linear-gradient(to left,rgb(200, 244, 218), #ffe5d9);
     font-size: 5rem;
     letter-spacing: 0.5rem;
     text-transform: uppercase;
@@ -95,7 +90,6 @@ h2 {
     font-size: 2.5rem;
     border-bottom: 1px solid black;
 }
-
 
 .negrito {
     font-weight: bolder;
@@ -151,7 +145,6 @@ h2 {
 
 footer {
     font-size: 1.5rem;
-    background-color: black;
     padding: .5rem;
     background-image: linear-gradient(to left, black, gray);
 }
@@ -177,7 +170,7 @@ a:link, a:visited {
 }
 
 a:hover, a:focus, a:active {
-    color: rgb(125, 123, 123);
+    color: white;
     text-decoration: underline;
 }   
 
@@ -187,8 +180,7 @@ a:hover, a:focus, a:active {
 
 li a img {
     width: 30px;
-    height: 30px;
-    
+    height: 30px; 
 }
 
 table {
@@ -216,4 +208,71 @@ th {
 .linha-branca {
     background-color: #fff;
     color: black;
+}
+
+@media (max-width: 1024px) {
+    main {
+        width: 70%;
+    }
+
+    aside, nav {
+        width: 25%;
+        margin: 1rem 0;
+    }
+
+    #layout-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    main, aside, nav {
+        width: 80%;
+        margin: 1rem 0;
+    }
+
+    #titulo-principal {
+        font-size: 3rem;
+        letter-spacing: 0.2rem;
+    }
+
+    body {
+        font-size: 1rem;
+    }
+    
+    table {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .autor-data {
+        font-size: 0.9rem;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
+
+    li a img {
+        width: 20px;
+        height: 20px;
+    }
 }
