@@ -70,7 +70,7 @@ cidades.addEventListener("change", () => {
   let cidade = cidades.value;
   let resultadoCidade = getById("resultadoCidade");
 
-  resultadoCidade.innerText = "Cidade selecionada = " + cidade;
+  resultadoCidade.innerText = "Cidade selecionada: " + cidade;
 });
 
 let inputColor = getById("inputColor");
