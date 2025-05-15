@@ -1,66 +1,83 @@
+// Importando os módulos necessários
 const axios = require('axios');
 const cheerio = require('cheerio');
 const fs = require('fs');
-const path = require('path');
-const { URL } = require('url');
+const urlModule = require('url');
 
-const pastaDados = './dados';
-const pastaPaginas = path.join(pastaDados, 'paginas');
-const arquivoVisitados = path.join(pastaDados, 'visitados.json');
+// Arquivo que armazena todo o conteúdo coletado
+const arquivoDados = 'dados.json';
+const arquivoVisitados = 'visitados.json';
 
-// Garante que os diretórios existam
-if (!fs.existsSync(pastaDados)) fs.mkdirSync(pastaDados);
-if (!fs.existsSync(pastaPaginas)) fs.mkdirSync(pastaPaginas);
-if (!fs.existsSync(arquivoVisitados)) fs.writeFileSync(arquivoVisitados, JSON.stringify([]));
-
-let visitados = new Set(JSON.parse(fs.readFileSync(arquivoVisitados, 'utf-8')));
-
-function salvarVisitado(url) {
-    visitados.add(url);
-    fs.writeFileSync(arquivoVisitados, JSON.stringify([...visitados], null, 2));
+// Função para carregar dados já salvos
+function carregarDados() {
+  if (fs.existsSync(arquivoDados)) {
+    return JSON.parse(fs.readFileSync(arquivoDados, 'utf-8'));
+  }
+  return [];
 }
 
-function salvarPagina(url, html) {
-    const nomeArquivo = path.join(pastaPaginas, encodeURIComponent(url) + '.html');
-    fs.writeFileSync(nomeArquivo, html);
+// Função para salvar todos os dados
+function salvarDados(dados) {
+  fs.writeFileSync(arquivoDados, JSON.stringify(dados, null, 2));
 }
 
-async function crawler(url, profundidade = 0, limite = 10) {
-    if (visitados.has(url) || profundidade > limite) return;
+// Função para carregar páginas já visitadas
+function carregarVisitados() {
+  if (fs.existsSync(arquivoVisitados)) {
+    return JSON.parse(fs.readFileSync(arquivoVisitados, 'utf-8'));
+  }
+  return {};
+}
 
-    console.log(`🔗 Visitando: ${url}`);
-    salvarVisitado(url);
+// Função para salvar páginas visitadas
+function salvarVisitados(visitados) {
+  fs.writeFileSync(arquivoVisitados, JSON.stringify(visitados, null, 2));
+}
 
-    try {
-        const resposta = await axios.get(url);
-        const html = resposta.data;
-        salvarPagina(url, html);
+// Função principal do crawler
+async function crawlPagina(url, visitados = carregarVisitados(), dados = carregarDados()) {
+  if (visitados[url]) {
+    console.log(`Página já visitada: ${url}`);
+    return;
+  }
+  try {
+    const resposta = await axios.get(url);
+    const $ = cheerio.load(resposta.data);
+    const links = [];
 
-        const $ = cheerio.load(html);
-        const links = [];
-
-        $('a').each((i, el) => {
-            const href = $(el).attr('href');
-            if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
-                try {
-                    const linkAbsoluto = new URL(href, url).href;
-                    if (!visitados.has(linkAbsoluto)) {
-                        links.push(linkAbsoluto);
-                    }
-                } catch (e) {
-                    // Link malformado ignorado
-                }
-            }
-        });
-
-        for (const link of links) {
-            await crawler(link, profundidade + 1, limite);
+    $('a').each((i, elemento) => {
+      let href = $(elemento).attr('href');
+      if (href) {
+        // Transformar link relativo em absoluto
+        if (!href.startsWith('http')) {
+          href = urlModule.resolve(url, href);
         }
+        links.push(href);
+      }
+    });
 
-    } catch (erro) {
-        console.error(`❌ Erro ao acessar ${url}: ${erro.message}`);
+    // Adiciona os dados ao arquivo único
+    dados.push({
+      url,
+      conteudo: resposta.data,
+      links
+    });
+    salvarDados(dados);
+
+    // Marca a página como visitada
+    visitados[url] = true;
+    salvarVisitados(visitados);
+
+    console.log(`Página salva: ${url}`);
+
+    // Exploração recursiva dos links encontrados
+    for (const link of links) {
+      await crawlPagina(link, visitados, dados);
     }
+  } catch (erro) {
+    console.error(`Erro ao acessar a página ${url}:`, erro.message);
+  }
 }
-// Início do crawler com link inicial
-const urlInicial = 'https://amandasantos312.github.io/ProgrInternet1/buscador/paginas/blade_runner.html';
-crawler(urlInicial);
+
+// Exemplo de uso:
+crawlPagina('https://amandasantos312.github.io/ProgrInternet1/buscador/paginas/blade_runner.html');
