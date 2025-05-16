@@ -10,12 +10,30 @@ function carregarDados() {
   return [];
 }
 
-function calcularPontuacao(pagina, palavra) {
-  const regex = new RegExp(palavra, 'gi');
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function prepararTermo(palavra) {
+  // Escapar caracteres especiais e lidar com qualquer espaço em branco
+  return escapeRegExp(palavra).replace(/\s+/g, '\\s+');
+}
+
+function calcularPontuacao(pagina, palavra, dados) {
+  const termo = prepararTermo(palavra);
+  const regex = new RegExp(termo, 'gi'); //
+
   const ocorrencias = (pagina.conteudo.match(regex) || []).length;
-  const linksRecebidos = pagina.links.length;
+  
+  // Verificar se há autoreferência
   const autoreferencia = pagina.links.includes(pagina.url);
 
+  // Contar links de entrada a partir de outras páginas
+  const linksRecebidos = dados.reduce((count, pag) => {
+    return (pag.links.includes(pagina.url) && pag.url !== pagina.url) ? count + 1 : count;
+  }, 0);
+
+  // Calcular pontuação
   let pontos = ocorrencias * 5 + linksRecebidos * 10;
   if (autoreferencia) pontos -= 15;
 
@@ -27,7 +45,8 @@ function buscarPalavraChave(palavra) {
   const resultados = [];
 
   dados.forEach((pagina) => {
-    const { pontos, ocorrencias, linksRecebidos, autoreferencia } = calcularPontuacao(pagina, palavra);
+    const { pontos, ocorrencias, linksRecebidos, autoreferencia } = calcularPontuacao(pagina, palavra, dados);
+    // Apenas adiciona se encontrar o termo pelo menos 1 vez
     if (ocorrencias > 0) {
       resultados.push({
         url: pagina.url,
@@ -63,4 +82,4 @@ function buscarPalavraChave(palavra) {
 }
 
 // Se quiser chamar direto, por exemplo:
-buscarPalavraChave("Matrix");
+buscarPalavraChave("Viagem");
