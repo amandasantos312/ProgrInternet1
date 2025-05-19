@@ -82,3 +82,4 @@ function buscarPalavraChave(palavra) {
 }
 
 buscarPalavraChave("Explora");
+//buscarPalavraChave("Espaço");
