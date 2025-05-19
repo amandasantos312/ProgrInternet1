@@ -1,0 +1,44 @@
+[
+  {
+    "url": "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/chegada.html",
+    "conteudo": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>A Chegada</title>\n</head>\n<body>\n    <h1>A Chegada</h1>\n    <p><em>Data da Publicação: 20/02/2017</em></p>\n\n    <h2>O Enigma dos Visitantes</h2>\n    <p>A Chegada, dirigido por Denis Villeneuve, explora a chegada de misteriosas naves alienígenas à Terra e o esforço da linguista Louise Banks para decifrar sua complexa linguagem. O filme aborda questões de comunicação, tempo e memória, desafiando a percepção do espectador sobre causa e efeito.</p>\n\n    <h2>Elenco e Direção</h2>\n    <p>Amy Adams interpreta Louise Banks, acompanhada por Jeremy Renner e Forest Whitaker. A direção de Denis Villeneuve traz um toque introspectivo e emocionante para o gênero de ficção científica.</p>\n\n    <hr>\n    <h3>Links Relacionados</h3>\n    <ul>\n        <li><a href=\"2001.html\">2001: Uma Odisseia no Espaço</a></li>\n        <li><a href=\"ex_machina.html\">Ex Machina</a></li>\n        <li><a href=\"chegada.html\">A Chegada</a></li>\n    </ul>\n</body>\n</html>",
+    "links": [
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/2001.html",
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/ex_machina.html",
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/chegada.html"
+    ]
+  },
+  {
+    "url": "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/2001.html",
+    "conteudo": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>2001: Uma Odisseia no Espaço</title>\n</head>\n<body>\n    <h1>2001: Uma Odisseia no Espaço</h1>\n    <p><em>Data da Publicação: 01/04/2010</em></p>\n\n    <h2>Explorando a Existência</h2>\n    <p>Dirigido por Stanley Kubrick, este clássico da ficção científica aborda a evolução humana e a relação entre tecnologia e humanidade, culminando numa jornada enigmática pelo espaço profundo.</p>\n\n    <h2>Direção e Atuação</h2>\n    <p>A parceria entre Stanley Kubrick e Arthur C. Clarke resultou em uma narrativa visualmente impressionante e filosoficamente instigante.</p>\n\n    <hr>\n    <h3>Links Relacionados</h3>\n    <ul>\n        <li><a href=\"star_wars.html\">Star Wars</a></li>\n        <li><a href=\"ex_machina.html\">Ex Machina</a></li>\n    </ul>\n</body>\n</html>",
+    "links": [
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/star_wars.html",
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/ex_machina.html"
+    ]
+  },
+  {
+    "url": "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/star_wars.html",
+    "conteudo": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Star Wars</title>\n</head>\n<body>\n    <h1>Star Wars</h1>\n    <p><em>Data da Publicação: 25/05/1977</em></p>\n\n    <h2>Uma Saga Espacial Épica</h2>\n    <p>Star Wars, criado por George Lucas, é uma saga intergaláctica que explora a luta entre o bem e o mal, com personagens icônicos e uma mitologia rica e envolvente.</p>\n\n    <h2>Elenco Principal</h2>\n    <p>Mark Hamill, Harrison Ford e Carrie Fisher interpretam os protagonistas da trilogia original, cativando gerações de fãs.</p>\n\n    <hr>\n    <h3>Links Relacionados</h3>\n    <ul>\n        <li><a href=\"ex_machina.html\">Ex Machina</a></li>\n        <li><a href=\"chegada.html\">A Chegada</a></li>\n    </ul>\n</body>\n</html>",
+    "links": [
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/ex_machina.html",
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/chegada.html"
+    ]
+  },
+  {
+    "url": "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/ex_machina.html",
+    "conteudo": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Ex Machina</title>\n</head>\n<body>\n    <h1>Ex Machina</h1>\n    <p><em>Data da Publicação: 11/05/2015</em></p>\n\n    <h2>Inteligência Artificial e Consciência</h2>\n    <p>Dirigido por Alex Garland, Ex Machina explora a interação entre humanos e inteligências artificiais, questionando a natureza da consciência e a ética da criação de máquinas autoconscientes.</p>\n\n    <h2>Elenco e Direção</h2>\n    <p>Alicia Vikander, Domhnall Gleeson e Oscar Isaac estrelam esta obra inquietante que mistura ciência e filosofia.</p>\n\n    <hr>\n    <h3>Links Relacionados</h3>\n    <ul>\n        <li><a href=\"star_wars.html\">Star Wars</a></li>\n        <li><a href=\"chegada.html\">A Chegada</a></li>\n        <li><a href=\"gravidade.html\">Gravidade</a></li>\n    </ul>\n</body>\n</html>",
+    "links": [
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/star_wars.html",
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/chegada.html",
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/gravidade.html"
+    ]
+  },
+  {
+    "url": "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/gravidade.html",
+    "conteudo": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Gravidade</title>\n</head>\n<body>\n    <h1>Gravidade</h1>\n    <p><em>Data da Publicação: 05/08/2014</em></p>\n\n    <h2>Sozinhos no Espaço</h2>\n    <p>Dirigido por Alfonso Cuarón, Gravidade retrata a luta pela sobrevivência de dois astronautas após um acidente que os deixa à deriva no espaço. A trama é intensa e angustiante, explorando os limites da resistência humana.</p>\n\n    <h2>Elenco Principal</h2>\n    <p>Sandra Bullock e George Clooney dão vida aos personagens, oferecendo performances emocionantes e carregadas de tensão.</p>\n\n    <hr>\n    <h3>Links Relacionados</h3>\n    <ul>\n        <li><a href=\"chegada.html\">A Chegada</a></li>\n        <li><a href=\"star_wars.html\">Star Wars</a></li>\n    </ul>\n</body>\n</html>",
+    "links": [
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/chegada.html",
+      "https://amandasantos312.github.io/ProgrInternet1/buscador2/paginas/star_wars.html"
+    ]
+  }
+]
