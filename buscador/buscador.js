@@ -15,7 +15,7 @@ function escapeRegExp(string) {
 }
 
 function prepararTermo(palavra) {
-  // Escapar caracteres especiais e lidar com qualquer espaço em branco
+  // Escapa caracteres especiais e lidar com qualquer espaço em branco
   return escapeRegExp(palavra).replace(/\s+/g, '\\s+');
 }
 
@@ -25,15 +25,15 @@ function calcularPontuacao(pagina, palavra, dados) {
 
   const ocorrencias = (pagina.conteudo.match(regex) || []).length;
   
-  // Verificar se há autoreferência
+  // Verifica se há autoreferência
   const autoreferencia = pagina.links.includes(pagina.url);
 
-  // Contar links de entrada a partir de outras páginas
+  // Conta links de entrada a partir de outras páginas
   const linksRecebidos = dados.reduce((count, pag) => {
     return (pag.links.includes(pagina.url) && pag.url !== pagina.url) ? count + 1 : count;
   }, 0);
 
-  // Calcular pontuação
+  // Calcula pontuação
   let pontos = ocorrencias * 5 + linksRecebidos * 10;
   if (autoreferencia) pontos -= 15;
 
@@ -80,6 +80,8 @@ function buscarPalavraChave(palavra) {
     console.log('---------------------------------------------------');
   });
 }
-
-// Se quiser chamar direto, por exemplo:
-buscarPalavraChave("Viagem");
+buscarPalavraChave("Matrix");
+//buscarPalavraChave("Ficção Científica");
+//buscarPalavraChave("Realidade");
+//buscarPalavraChave("Universo");
+//buscarPalavraChave("Viagem");
