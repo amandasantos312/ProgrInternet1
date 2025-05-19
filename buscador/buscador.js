@@ -71,14 +71,16 @@ function buscarPalavraChave(palavra) {
 
   console.log(`\nResultados para "${palavra}":\n`);
 
-  resultados.forEach((res, i) => {
+  /*resultados.forEach((res, i) => {
     console.log(`${i + 1}. URL: ${res.url}`);
     console.log(`   Pontos: ${res.pontos}`);
     console.log(`   Ocorrências do termo: ${res.ocorrencias}`);
     console.log(`   Links recebidos: ${res.linksRecebidos}`);
     console.log(`   Autoreferência: ${res.autoreferencia ? 'Sim' : 'Não'}`);
     console.log('---------------------------------------------------');
-  });
+  });*/
+
+  console.table(resultados,['url','pontos', 'ocorrencias', 'linksRecebidos', 'autoreferencia'])
 }
 buscarPalavraChave("Matrix");
 //buscarPalavraChave("Ficção Científica");
