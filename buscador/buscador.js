@@ -21,7 +21,7 @@ function prepararTermo(palavra) {
 
 function calcularPontuacao(pagina, palavra, dados) {
   const termo = prepararTermo(palavra);
-  const regex = new RegExp(termo, 'gi'); //
+  const regex = new RegExp(termo, 'gi'); 
 
   const ocorrencias = (pagina.conteudo.match(regex) || []).length;
   
@@ -80,10 +80,10 @@ function buscarPalavraChave(palavra) {
     console.log('---------------------------------------------------');
   });*/
 
-  console.table(resultados,['url','pontos', 'ocorrencias', 'linksRecebidos', 'autoreferencia'])
+  console.table(resultados,['url', 'ocorrencias', 'linksRecebidos', 'autoreferencia','pontos'])
 }
-buscarPalavraChave("Matrix");
-//buscarPalavraChave("Ficção Científica");
+//buscarPalavraChave("Matrix");
+buscarPalavraChave("Ficção Científica");
 //buscarPalavraChave("Realidade");
 //buscarPalavraChave("Universo");
 //buscarPalavraChave("Viagem");
