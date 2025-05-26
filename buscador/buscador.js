@@ -82,8 +82,9 @@ function buscarPalavraChave(palavra) {
 
   console.table(resultados,['url', 'ocorrencias', 'linksRecebidos', 'autoreferencia','pontos'])
 }
-//buscarPalavraChave("Matrix");
-buscarPalavraChave("Ficção Científica");
+buscarPalavraChave("Matrix");
+//buscarPalavraChave("Ficção Científica");
 //buscarPalavraChave("Realidade");
 //buscarPalavraChave("Universo");
 //buscarPalavraChave("Viagem");
+//buscarPalavraChave("Filme");
