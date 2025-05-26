@@ -82,5 +82,5 @@ function buscarPalavraChave(palavra) {
 
   console.table(resultados,['url', 'ocorrencias', 'linksRecebidos', 'autoreferencia','pontos'])
 }
-buscarPalavraChave("Explora");
+//buscarPalavraChave("Explora");
 //buscarPalavraChave("Espaço");
