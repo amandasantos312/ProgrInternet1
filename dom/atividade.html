@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Dom 19/05</title>
+    <script src="atividade.js" defer></script>
+</head>
+<body>
+    <h2>2.Crie dois exemplos usando os métodos do objeto document:</h2>
+    <p>a. getElementById()</p>
+        <select id="turnos">
+            <option value="manha">Manhã</option>
+            <option value="tarde">Tarde</option>
+            <option value="noite">Noite</option>
+        </select>
+        <div id="resultadoTurno"></div>
+        <br>
+        <div id="nome"></div> 
+    
+    <p>b. getElementByTagName()</p>
+
+    <h2>3.Crie um código que conte o número de parágrafos dentro de uma div e exiba o resultado em uma outra div.</h2>   
+    <p>Quantidade de parágrafos:</p>
+    <div id="conteudo">
+        <p>Parágrafo 1</p>
+        <p>Parágrafo 2</p>
+        <p>Parágrafo 3</p>
+    </div>
+
+    <div id="resultado"></div>
+
+    <h2>4.Considere o exemplo abaixo da página html e um script externo, bem como sua versão em Type script:</h2>
+    <p id="paragrafo">Clique no botão abaixo para alterar o texto deste parágrafo:</p>
+    <button id="botao">Clique aqui</button>
+    <br>
+    <br>
+    <button id="limpar">Limpar Texto</button>
+
+    <h2>5.Qual a diferença entre as propriedades textContent, innerText e innerHTML dos elementos HTML? Cite exemplos.</h2>
+    <p><b>textContent:</b> retorna todo o conteúdo textual de um elemento sem interpretar as tags HTML, substitui todo o conteúdo do elemento por texto simples.</p>
+    <p><b>innerText:</b> retorna o texto visível ao usuário, respeitando as regras de estilo CSS.</p>
+    <p><b>innerHTML:</b> retorna o conteúdo HTML completo de um elemento, incluindo tags internas, quando usada para atribuição, ele substitui o conteúdo atual por novo conteúdo HTML.</p>
+
+    <h2>6.Crie um exemplo em que uma propriedade CSS de um elemento HTML é alterada via DOM baseada na documentação da página</h2>
+    <p id="p2">Hello World</p>
+
+    <h2>7.Criar um código que copie o conteúdo de uma caixa de texto para outra só que em caixa alta.</h2>
+    <label for="entrada">Digite algo: </label>
+    <input type="text" id="entrada">
+    
+    <button onclick="copiarTexto()">Copiar para Caixa Alta</button>
+    <br>
+    <label for="saida">Resultado</label>
+    <input type="text" id="saida" readonly>
+
+    <h2>8.Cria código que tenha botão de alto contraste que alterne a cor de fundo do body para preto e cor do texto para branco. 
+    Adicionalmente, crie um botão para resetar as cores originais.</h2>
+    <style>
+        body {
+          font-size: 16px;
+          background-color: white;
+          color: black;
+          font-family: Arial, sans-serif;
+        }
+        .alto-contraste {
+          background-color: black !important;
+          color: white !important;
+        }
+    </style>
+    <button class="btn" onclick="ativarAltoContraste()">Alto Contraste</button>
+    <button class="btn" onclick="resetarCores()">Resetar Cores</button>
+
+    <h2>9.Crie um script acionado por botões que aumentem o tamanho do texto de toda a página e outro que faça o contrário.</h2>
+    <p>O texto de toda a página terá seu tamanho aumentado ou diminuído pelos botões abaixo:</p>
+
+    <button onclick="ajustarTexto(1)">Aumentar texto</button>
+    <button onclick="ajustarTexto(-1)">Diminuir texto</button>
+
+    <h2>10.Crie uma pequena calculadora com as 4 operações. 
+    A operação deve ser selecionada de botões de radio. 
+    Para isso, teste a propriedade selected para
+    descobrir qual operação está selecionada.</h2>
+    <style>
+        input[type="number"] {
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 10px;
+          font-size: 16px;
+        }
+        label {
+          margin-right: 10px;
+          font-size: 16px;
+        }
+        #resultado {
+          margin-top: 15px;
+          font-weight: bold;
+          font-size: 18px;
+        }
+    </style>
+  
+    <input type="number" id="num1" placeholder="Número 1" />
+    <input type="number" id="num2" placeholder="Número 2" />
+
+    <div>
+        <label><input type="radio" name="operacao" value="somar" checked /> + Somar</label>
+        <label><input type="radio" name="operacao" value="subtrair" /> - Subtrair</label>
+        <label><input type="radio" name="operacao" value="multiplicar" /> × Multiplicar</label>
+        <label><input type="radio" name="operacao" value="dividir" /> ÷ Dividir</label>
+    </div>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="resultadoCalculadora"></div>
+    
+    <h2>11.Pesquise como criar elementos e adicione o conteúdo de uma caixa de texto em uma lista não ordenada.</h2>
+    <input type="text" id="itemTexto" placeholder="Digite um item">
+    <button onclick="adicionarItem()">Adicionar</button>
+
+    <ul id="listaItens">
+    </ul>
+
+    <h2>12.Repita o exercício anterior adicionando o conteúdo da caixa de texto em um elemento de um select.</h2>
+    <input type="text" id="textoSelect" placeholder="Digite uma opção">
+    <button onclick="adicionarOpcao()">Adicionar ao Select</button>
+
+    <select id="listaSelect">
+        <option disabled selected>Selecione uma opção</option>
+    </select>
+
+</body>
+</html>
