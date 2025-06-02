@@ -1,0 +1,30 @@
+body {
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+.alto-contraste {
+    background-color: black !important;
+    color: white !important;
+}
+
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#resultado {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
