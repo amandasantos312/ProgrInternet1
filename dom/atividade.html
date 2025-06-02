@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atividade Dom 19/05</title>
     <script src="atividade.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Atividade de DOM</h1>
     <h2>2.Crie dois exemplos usando os métodos do objeto document:</h2>
     <p>a. getElementById()</p>
         <select id="turnos">
@@ -56,18 +58,7 @@
 
     <h2>8.Cria código que tenha botão de alto contraste que alterne a cor de fundo do body para preto e cor do texto para branco. 
     Adicionalmente, crie um botão para resetar as cores originais.</h2>
-    <style>
-        body {
-          font-size: 16px;
-          background-color: white;
-          color: black;
-          font-family: Arial, sans-serif;
-        }
-        .alto-contraste {
-          background-color: black !important;
-          color: white !important;
-        }
-    </style>
+  
     <button class="btn" onclick="ativarAltoContraste()">Alto Contraste</button>
     <button class="btn" onclick="resetarCores()">Resetar Cores</button>
 
@@ -81,23 +72,6 @@
     A operação deve ser selecionada de botões de radio. 
     Para isso, teste a propriedade selected para
     descobrir qual operação está selecionada.</h2>
-    <style>
-        input[type="number"] {
-          width: 100%;
-          padding: 8px;
-          margin-bottom: 10px;
-          font-size: 16px;
-        }
-        label {
-          margin-right: 10px;
-          font-size: 16px;
-        }
-        #resultado {
-          margin-top: 15px;
-          font-weight: bold;
-          font-size: 18px;
-        }
-    </style>
   
     <input type="number" id="num1" placeholder="Número 1" />
     <input type="number" id="num2" placeholder="Número 2" />
