@@ -34,7 +34,7 @@ getById('botaoCalcularTaxa').addEventListener('click', () => {
 
     const taxa = (interacoes / visualizacoes) * 100;
     const resultado = getById('resultado');
-    resultado.innerText = `Taxa de Engajamento: ${taxa.toFixed(2)}%`;
+    resultado.innerText = `Taxa de Engajamento: ${taxa}%`;
 
     // limpa os campos após calcular
     getById('numInteracoes').value = '';
