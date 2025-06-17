@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 5</title>
+    <script src="q5.js" defer></script>
+    <link rel="stylesheet" href="q5.css">
+</head>
+<body>
+    <h1>Questão 5</h1>
+    <h2>Selecionando Imagens</h2>
+
+    <div class="box">
+        <label for="seletorImagem">Escolha uma imagem:</label>
+        <select id="seletorImagem">
+            <option value="">-- Selecione uma imagem --</option>
+            <option value="images/aurora.jpg">Aurora</option>
+            <option value="images/lôro.jpg">Lôro</option>
+            <option value="images/bois.jpg">Bois</option>
+        </select>
+        <button id="botaoCarregarImagem">Carregar Imagem</button>
+        <img id="imagemSelecionada" src="" style="display: none; max-width: 300px;" alt="Imagem Selecionanda">
+    </div>
+</body>
+</html>
