@@ -176,3 +176,10 @@ ul#lista-feriados {
   padding-left: 20px;
   text-align: left;
 }
+
+footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #555;
+}
