@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de APIs</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Atividade sobre APIs REST - Amanda e Mariana</h1>
+        
+    </header>
+    
+    <main>
+        <!-- Piadas Aleatórias  -->
+        <section class="apis">
+            <h2>Piadas Aleatórias <a href="https://official-joke-api.appspot.com/" target="_blank">(Joke Api)</a></h2>
+            <p>Piadinhas em inglês exibidas aleatoriamente</p>
+            <button id="obter-piada">Gerar</button>
+            <p id="piada-saida"></p>
+        </section>
+
+        <!-- Feriados do Brasil -->
+        <section class="apis">
+            <h2>Feriados do Brasil <a href="https://calendarific.com/" target="_blank">(Calendarific)</a></h2>
+            <p>Busca por feriados do Brasil a partir do ano e mês. *Utiliza chave</p>
+
+            <label for="ano">Ano:</label>
+            <input type="number" id="ano" placeholder="Ex: 2025" required>
+
+            <label for="mes">Mês:</label>
+            <input type="number" id="mes" min="1" max="12" placeholder="Ex: 5" required>
+
+            <button id="buscar-feriados">Buscar</button>
+            <ul id="lista-feriados"></ul>
+        </section>
+
+        <!--Conversão-->
+        <section class="apis">
+            <h2>Conversor Real para Dólar <a href="https://www.exchangerate-api.com/" target="_blank">(ExchangeRate API)</a></h2>
+            <p>Conversor de moedas, é passsado o tipo de moeda do input e a saída outro tipo. *Utiliza chave</p>
+
+            <input type="number" id="valor" placeholder="Valor em Real: ">
+            <button id="obter-conversao">Enviar</button>
+            <p id="conversao-saida"></p>
+        </section>
+
+        <!--Gênero por nome-->
+        <section class="apis">
+            <h2>Descobrir Gênero pelo Nome <a href="https://genderize.io/">(Genderize)</a></h2>
+            <p>A partir de um nome, ele dá a probabilidade do gênero desse nome.</p>
+
+            <input type="text" id="nome" placeholder="Digite um nome: ">
+            <button id="verificar-genero">Buscar</button>
+            <p id="resultado"></p>
+        </section>
+        
+        <footer>Desenvolvido por: <a href="https://github.com/amandasantos312">Amanda Vitória Silva Santos</a> e <a href="https://github.com/marianaraujos">Mariana de Araujo Gomes Sousa</a></footer>
+    </main>
+    
+    
+</body>
+</html>
