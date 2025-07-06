@@ -9,16 +9,20 @@ function criarElemento(p) {
 let tarefas = []; //Array para armazenar todas as tarefas
 let idCounter = 1;
 
-const tarefasSalvas = localStorage.getItem("tarefas");
-if (tarefasSalvas) {
-    tarefas = JSON.parse(tarefasSalvas);
+carregarTarefasSalvas();
 
-    // Atualiza o contador com base no maior ID encontrado
-    const ultimoId = Math.max(...tarefas.map(t => t.id), 0);
-    idCounter = ultimoId + 1;
-
-    atualizarTabela(); //Mostra as tarefas recuperadas
-} 
+function carregarTarefasSalvas() {
+    const tarefasSalvas = localStorage.getItem("tarefas");
+    if (tarefasSalvas) {
+        tarefas = JSON.parse(tarefasSalvas);
+    
+        // Atualiza o contador com base no maior ID encontrado
+        const ultimoId = Math.max(...tarefas.map(t => t.id), 0);
+        idCounter = ultimoId + 1;
+    
+        atualizarTabela(); //Mostra as tarefas recuperadas
+    }
+}
 
 //2) Crie uma estrutura minimamente aceitável para representar uma tarefa.
 function criarTarefa(descricao) { 
