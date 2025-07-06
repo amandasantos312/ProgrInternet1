@@ -2,8 +2,23 @@ function getById(id) {
     return document.getElementById(id);
 }
 
+function criarElemento(p) {
+    return document.createElement(p);
+}
+
 let tarefas = []; //Array para armazenar todas as tarefas
-let idCounter = 1; 
+let idCounter = 1;
+
+const tarefasSalvas = localStorage.getItem("tarefas");
+if (tarefasSalvas) {
+    tarefas = JSON.parse(tarefasSalvas);
+
+    // Atualiza o contador com base no maior ID encontrado
+    const ultimoId = Math.max(...tarefas.map(t => t.id), 0);
+    idCounter = ultimoId + 1;
+
+    atualizarTabela(); //Mostra as tarefas recuperadas
+} 
 
 //2) Crie uma estrutura minimamente aceitável para representar uma tarefa.
 function criarTarefa(descricao) { 
@@ -30,7 +45,7 @@ function atualizarTabela() {
 
         const celulaAcoes = linha.insertCell(4);
 
-        const btnConcluirOuReabrir = document.createElement("button");
+        const btnConcluirOuReabrir = criarElemento("button");
         btnConcluirOuReabrir.className = "concluirBtn";
 
         if (!tarefa.dataConclusao) {
@@ -48,7 +63,7 @@ function atualizarTabela() {
             };
         }
 
-        const btnExcluir = document.createElement("button");
+        const btnExcluir = criarElemento("button");
         btnExcluir.className = "excluirBtn";
         btnExcluir.textContent = "Excluir";
 
@@ -72,10 +87,12 @@ function atualizarTabela() {
         celulaAcoes.appendChild(btnConcluirOuReabrir);
         celulaAcoes.appendChild(btnExcluir);
     });
+
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
 
 getById("adicionarBtn").addEventListener("click", () => {
-    const input = document.getElementById("descricaoTarefa");
+    const input = getById("descricaoTarefa");
     const descricao = input.value.trim();
 
     //Verifica se a descrição está vazia
@@ -89,8 +106,6 @@ getById("adicionarBtn").addEventListener("click", () => {
     tarefas.push(novaTarefa);
 
     atualizarTabela();
-
-    //Limpa o campo de entrada
     input.value = "";
 });
 
