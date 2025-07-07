@@ -9,8 +9,6 @@ function criarElemento(p) {
 let tarefas = []; //Array para armazenar todas as tarefas
 let idCounter = 1;
 
-carregarTarefasSalvas();
-
 function carregarTarefasSalvas() {
     const tarefasSalvas = localStorage.getItem("tarefas");
     if (tarefasSalvas) {
@@ -71,7 +69,7 @@ function atualizarTabela() {
         btnExcluir.className = "excluirBtn";
         btnExcluir.textContent = "Excluir";
 
-            // Impede a exclusão se a tarefa estiver finalizada
+        // Impede a exclusão se a tarefa estiver finalizada
         if (tarefa.dataConclusao) {
             btnExcluir.disabled = true;
             btnExcluir.title = "Não é possível excluir tarefas concluídas";
@@ -112,6 +110,8 @@ getById("adicionarBtn").addEventListener("click", () => {
     atualizarTabela();
     input.value = "";
 });
+
+carregarTarefasSalvas();
 
 /*4.e) Melhorias:
     - Botões estilizados, concluir-verde, reabir-laranja e excluir-vermelho;
