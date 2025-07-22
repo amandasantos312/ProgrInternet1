@@ -3,8 +3,6 @@ import { RepositorioDePostagens } from './RepositorioDePostagens';
 import { Postagem } from './Postagem';
 import cors from 'cors';
 
-
-
 const app = express();
 const repositorio = new RepositorioDePostagens();
 
@@ -14,14 +12,41 @@ app.use(express.json());
 // Configuração básica do CORS
 app.use(cors());
 
-// Povoar o repositório com postagens iniciais
-repositorio.povoar();
 
 // Endpoint para raiz
 const PATH: string = '/socialifpi/postagem';
 const PATH_ID: string = PATH + '/:id';
 const PATH_CURTIR = PATH_ID + '/curtir';
+const PATH_COMENTARIOS = PATH_ID + '/comentarios';
 
+// Endpoint para adicionar comentário
+app.post(PATH_COMENTARIOS, (req: Request, res: Response) => {
+    const id = parseInt(req.params.id);
+    const { autor, conteudo } = req.body;
+    
+    if (!autor || !conteudo) {
+        return res.status(400).json({ message: 'Autor e conteúdo são obrigatórios' });
+    }
+
+    const sucesso = repositorio.adicionarComentario(id, autor, conteudo);
+    if (!sucesso) {
+        return res.status(404).json({ message: 'Postagem não encontrada' });
+    }
+
+    res.status(201).json({ message: 'Comentário adicionado com sucesso' });
+});
+
+// Endpoint para listar comentários
+app.get(PATH_COMENTARIOS, (req: Request, res: Response) => {
+    const id = parseInt(req.params.id);
+    const comentarios = repositorio.listarComentarios(id);
+    
+    if (comentarios === null) {
+        return res.status(404).json({ message: 'Postagem não encontrada' });
+    }
+
+    res.json(comentarios);
+});
 
 
 // Endpoint para listar todas as postagens

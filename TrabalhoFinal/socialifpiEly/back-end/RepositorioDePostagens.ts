@@ -1,27 +1,151 @@
 import { Postagem } from './Postagem';
+import { Comentario } from './types';
+import * as fs from 'fs';
+import * as path from 'path';
+
 
 export class RepositorioDePostagens {
     private postagens: Postagem[] = [];
     private nextId: number = 1;
+    private readonly caminhoDB = path.resolve(__dirname, 'db.json');
+
+    constructor() {
+        this.carregarDeArquivo();
+
+        if (this.postagens.length === 0) {
+            this.povoar();
+        }
+    }
+
+    private carregarDeArquivo(): void {
+        if (fs.existsSync(this.caminhoDB)) {
+            const conteudo = fs.readFileSync(this.caminhoDB, 'utf-8');
+            try {
+                const objetosSalvos = JSON.parse(conteudo);
+                
+                // LÓGICA CORRIGIDA ABAIXO
+                this.postagens = objetosSalvos.map((obj: any) => {
+                    // 1. Cria a postagem base (que terá this.comentarios = [])
+                    const postagem = new Postagem(
+                        obj.id,
+                        obj.titulo,
+                        obj.conteudo,
+                        new Date(obj.data),
+                        obj.curtidas
+                    );
+                
+                    // 2. Se o objeto salvo tinha comentários, atribui eles à nova postagem
+                    if (obj.comentarios && Array.isArray(obj.comentarios)) {
+                        postagem.comentarios = obj.comentarios;
+                    }
+                
+                    return postagem;
+                });
+                // FIM DA LÓGICA CORRIGIDA
+            
+                const maiorId = Math.max(...this.postagens.map(p => p.getId()), 0);
+                this.nextId = maiorId + 1;
+                console.log(`Carregado ${this.postagens.length} postagens do db.json`);
+            } catch (erro) {
+                console.error('Erro ao carregar o db.json:', erro);
+                this.postagens = [];
+            }
+        } else {
+            console.log("Nenhum db.json encontrado. Será criado um novo ao salvar!");
+        }
+    }
+        
+
+    public adicionarComentario(postagemId: number, autor: string, conteudo: string): boolean {
+        try {
+            const postagem = this.consultar(postagemId);
+            if (postagem) {
+                const novoComentario = {
+                    id: Date.now(),
+                    autor,
+                    conteudo,
+                    data: new Date().toISOString()
+                };
+
+                if (!postagem.comentarios) {
+                    postagem.comentarios = [];
+                }
+                postagem.comentarios.push(novoComentario);
+                this.salvarEmArquivo();
+                return true;
+            }
+            return false;
+        } catch (erro) {
+            console.error('Erro ao adicionar comentário:', erro);
+            return false;
+        }
+    }
+
+    // Método para listar comentários de uma postagem
+    public listarComentarios(postagemId: number): Comentario[] | null {
+        const postagem = this.consultar(postagemId);
+        return postagem ? postagem.comentarios || [] : null;
+    }
+
+    private salvarEmArquivo(): void {
+        try {
+            const dadosParaSalvar = this.postagens.map(postagem => ({
+                id: postagem.getId(),
+                titulo: postagem.getTitulo(),
+                conteudo: postagem.getConteudo(),
+                data: postagem.getData().toISOString(),
+                curtidas: postagem.getCurtidas(),
+                comentarios: postagem.comentarios //Vai incluir comentários
+            }));
+
+            fs.writeFileSync(this.caminhoDB, JSON.stringify(dadosParaSalvar, null, 4));
+            console.log(`Banco salvo com ${this.postagens.length} postagens.`);
+        } catch (erro) {
+            console.error('Erro ao salvar no db.json:', erro);
+        }
+    }
+
 
     // Método para incluir uma nova postagem
-    public incluir(postagem: Postagem): Postagem {
-        postagem['id'] = this.nextId++;
-        this.postagens.push(postagem);
-        return postagem;
+    public incluir(postagem: Postagem): Postagem | null {
+        try {
+            const existe = this.postagens.some(p => 
+                p.getTitulo() === postagem.getTitulo() && 
+                p.getConteudo() === postagem.getConteudo()
+            );
+        
+            if (existe) {
+                console.log('Postagem duplicada não será adicionada');
+                return null;
+            }
+
+            postagem['id'] = this.nextId++;
+            this.postagens.push(postagem);
+            this.salvarEmArquivo(); //sempre salvar quando incluir
+            return postagem;
+        } catch (erro) {
+            console.error('Erro ao incluir postagem: ', erro);
+            return null;
+        }
     }
 
     // Método para alterar uma postagem existente
     public alterar(id: number, titulo: string, conteudo: string, data: Date, curtidas: number) : boolean {
-        const postagem = this.consultar(id);
-        if (postagem) {
-            postagem['titulo'] = titulo;
-            postagem['conteudo'] = conteudo;
-            postagem['data'] = data;
-            postagem['curtidas'] = curtidas;
-            return true;
+        try {
+            const postagem = this.consultar(id);
+            if (postagem) {
+                postagem['titulo'] = titulo;
+                postagem['conteudo'] = conteudo;
+                postagem['data'] = data;
+                postagem['curtidas'] = curtidas;
+                this.salvarEmArquivo(); //sempre salvar quando alterar
+                return true;
+            }
+            return false;
+        } catch (erro) {
+            console.error('Erro ao alterar postagem: ', erro);
+            return false;
         }
-        return false;
     }
 
     // Método para consultar uma postagem pelo ID
@@ -31,22 +155,35 @@ export class RepositorioDePostagens {
 
     // Método para excluir uma postagem pelo ID
     public excluir(id: number): boolean {
-        const index = this.postagens.findIndex(postagem => postagem.getId() == id);
-        if (index != -1) {
-            this.postagens.splice(index, 1);
-            return true;
+        try {
+            const index = this.postagens.findIndex(postagem => postagem.getId() == id);
+            if (index != -1) {
+                this.postagens.splice(index, 1);
+                this.salvarEmArquivo(); //sempre salvar quando excluir algo
+                return true;
+            }
+            return false;
+        } catch (erro) {
+            console.error('Erro ao excluir postagem: ', erro);
+            return false;
         }
-        return false;
     }
 
     // Método para curtir uma postagem pelo ID
     public curtir(id: number): number | null {
-        const postagem = this.consultar(id);
-        if (postagem) {
-            postagem['curtidas'] = postagem.getCurtidas() + 1;
-            return postagem.getCurtidas();
+        try {
+            const postagem = this.consultar(id);
+            if (postagem) {
+                postagem['curtidas'] = postagem.getCurtidas() + 1;
+                this.salvarEmArquivo(); //salvar as curtidas
+                return postagem.getCurtidas();
+            }
+            return null;
+        } catch (erro) {
+            console.error('Erro ao curtir postagem:', erro);
+            return null;
         }
-        return null;
+        
     }
 
     // Método para gerar uma data aleatória dentro de um intervalo de anos
@@ -61,6 +198,11 @@ export class RepositorioDePostagens {
 
     // Método para povoar o array com instâncias de Postagem com datas aleatórias e conteúdos mais longos
     public povoar(): void {
+        if (this.postagens.length > 0) {
+            console.log('Banco já contém postagens, pulando povoamento!')
+            return;
+        }
+
         this.incluir(new Postagem(
             1,
             'A Importância da Educação',
