@@ -1,0 +1,41 @@
+[
+    {
+        "id": 11,
+        "titulo": "Teresina Info 2025",
+        "conteudo": "Teste",
+        "data": "2025-07-21T15:09:47.608Z",
+        "curtidas": 4,
+        "comentarios": []
+    },
+    {
+        "id": 9,
+        "titulo": "Alimentação Saudável",
+        "conteudo": "Uma dieta equilibrada é essencial para manter corpo e mente saudáveis. Os alimentos que consumimos impactam diretamente nossa saúde e bem-estar. Fazer escolhas alimentares conscientes pode prevenir doenças e melhorar a qualidade de vida. Invista em uma alimentação rica em nutrientes e pobre em alimentos processados.",
+        "data": "2024-11-04T03:00:00.000Z",
+        "curtidas": 11,
+        "comentarios": []
+    },
+    {
+        "id": 1,
+        "titulo": "A Importância da Educação",
+        "conteudo": "A educação é a base para uma sociedade mais justa e equitativa. Ela promove o desenvolvimento individual e coletivo, permitindo que pessoas realizem seu potencial. Investir em educação é investir no futuro de todos nós.",
+        "data": "2023-12-07T03:00:00.000Z",
+        "curtidas": 10,
+        "comentarios": []
+    },
+    {
+        "id": 3,
+        "titulo": "Sustentabilidade Ambiental",
+        "conteudo": "Preservar o meio ambiente é crucial para o futuro das próximas gerações. Cada ação nossa tem um impacto, e precisamos ser conscientes das nossas escolhas. A sustentabilidade não é uma opção, mas uma necessidade urgente. Devemos agir agora para garantir um planeta habitável no futuro.",
+        "data": "2023-07-14T03:00:00.000Z",
+        "curtidas": 21,
+        "comentarios": []
+    },
+    {
+        "id": 2,
+        "titulo": "Tecnologia e Inovação",
+        "conteudo": "Vivemos em uma era onde a tecnologia avança a passos largos. Inovações constantes estão mudando a forma como vivemos, trabalhamos e nos comunicamos. É essencial acompanhar essas mudanças para não ficarmos para trás. A tecnologia tem o poder de transformar o mundo em que vivemos.",
+        "data": "2023-05-16T03:00:00.000Z",
+        "curtidas": 16,
+        "comentarios": []
+    }]
