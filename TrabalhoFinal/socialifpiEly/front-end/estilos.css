@@ -7,13 +7,13 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #121212;
+    background-color: #757575ff;
     color: #EAEAEA;
     line-height: 1.6;
 }
 
 header {
-    background-color: #1A1A1A;
+    background-color: #555555ff;
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -28,7 +28,7 @@ header h1 {
 header p {
     margin-top: 5px;
     font-size: 1.2rem;
-    color: #CCCCCC;
+    color: #ffffffff;
 }
 
 nav ul {
@@ -70,6 +70,15 @@ section#formulario {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.postagem-metadados {
+    display: flex;       
+    align-items: center; 
+    gap: 15px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #444444;
+}
+
 .campos h2 {
     margin-bottom: 15px;
     font-size: 1.5rem;
@@ -109,6 +118,43 @@ section#formulario {
     background-color: #555555;
 }
 
+section#postagens article .btn-curtir {
+    background-color: #007BFF;
+    padding: 5px 12px;
+}
+
+section#postagens article .btn-curtir:hover {
+    background-color: #0056b3;
+}
+
+section#postagens article .btn-deslike {
+    background-color: #6c757d;
+    padding: 5px 12px;
+}
+
+section#postagens article .btn-deslike:hover {
+    background-color: #5a6268;
+}
+
+section#postagens article .btn-excluir {
+    background-color: #dc3545;
+    padding: 5px 12px;
+}
+
+section#postagens article .btn-excluir:hover {
+    background-color: #a71d2a;
+}
+
+section#postagens article .btn-editar {
+    background-color: #e7e312ff;
+    padding: 5px 12px;
+    margin-left: auto;
+}
+
+section#postagens article .btn-editar:hover {
+    background-color: #c5c346ff;
+}
+
 section#postagens article {
     margin-bottom: 20px;
     padding: 15px;
@@ -134,20 +180,6 @@ section#postagens article .data {
     font-size: 0.875rem;
     color: #CCCCCC;
     text-align: right;
-}
-
-section#postagens article button {
-    padding: 5px 10px;
-    background-color: #1A1A1A;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-section#postagens article button:hover {
-    background-color: #555555;
 }
 
 .comentarios-container h3 {
