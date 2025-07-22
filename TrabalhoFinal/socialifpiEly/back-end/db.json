@@ -21,7 +21,14 @@
         "conteudo": "A educação é a base para uma sociedade mais justa e equitativa. Ela promove o desenvolvimento individual e coletivo, permitindo que pessoas realizem seu potencial. Investir em educação é investir no futuro de todos nós.",
         "data": "2023-12-07T03:00:00.000Z",
         "curtidas": 10,
-        "comentarios": []
+        "comentarios": [
+            {
+                "id": 1753184596899,
+                "autor": "Amanda",
+                "conteudo": "Comentário de teste",
+                "data": "2025-07-22T11:43:16.899Z"
+            }
+        ]
     },
     {
         "id": 3,
@@ -38,4 +45,5 @@
         "data": "2023-05-16T03:00:00.000Z",
         "curtidas": 16,
         "comentarios": []
-    }]
+    }
+]
