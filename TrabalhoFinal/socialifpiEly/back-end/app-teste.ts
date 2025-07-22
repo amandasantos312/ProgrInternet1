@@ -11,6 +11,7 @@ app.get('/postagem', (req: Request, res: Response) => {
         "Minha primeira postagem...",
         "Este é o conteúdo da minha primeira postagem.",
         new Date("2024-09-02"),
+        0,
         0
     );
 
