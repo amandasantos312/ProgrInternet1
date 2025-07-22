@@ -25,16 +25,17 @@ export class RepositorioDePostagens {
                 
                 // LÓGICA CORRIGIDA ABAIXO
                 this.postagens = objetosSalvos.map((obj: any) => {
-                    // 1. Cria a postagem base (que terá this.comentarios = [])
+                    //Cria a postagem base (que terá this.comentarios = [])
                     const postagem = new Postagem(
                         obj.id,
                         obj.titulo,
                         obj.conteudo,
                         new Date(obj.data),
-                        obj.curtidas
+                        obj.curtidas,
+                        obj.descurtidas
                     );
                 
-                    // 2. Se o objeto salvo tinha comentários, atribui eles à nova postagem
+                    //Se o objeto salvo tinha comentários, atribui eles à nova postagem
                     if (obj.comentarios && Array.isArray(obj.comentarios)) {
                         postagem.comentarios = obj.comentarios;
                     }
@@ -95,7 +96,8 @@ export class RepositorioDePostagens {
                 conteudo: postagem.getConteudo(),
                 data: postagem.getData().toISOString(),
                 curtidas: postagem.getCurtidas(),
-                comentarios: postagem.comentarios //Vai incluir comentários
+                descurtidas: postagem.getDescurtidas(),
+                comentarios: postagem.comentarios
             }));
 
             fs.writeFileSync(this.caminhoDB, JSON.stringify(dadosParaSalvar, null, 4));
@@ -183,7 +185,21 @@ export class RepositorioDePostagens {
             console.error('Erro ao curtir postagem:', erro);
             return null;
         }
-        
+    }
+
+    public descurtir(id: number): number | null {
+        try {
+            const postagem = this.consultar(id);
+            if (postagem) {
+                postagem.descurtir(); // Usa o novo método da classe Postagem
+                this.salvarEmArquivo();
+                return postagem.getDescurtidas();
+            }
+            return null;
+        } catch (erro) {
+            console.error('Erro ao descurtir postagem:', erro);
+            return null;
+        }
     }
 
     // Método para gerar uma data aleatória dentro de um intervalo de anos
@@ -211,7 +227,8 @@ export class RepositorioDePostagens {
             'permitindo que pessoas realizem seu potencial. ' +
             'Investir em educação é investir no futuro de todos nós.',
             this.gerarDataAleatoria(),
-            10
+            10,
+            0
         ));
         this.incluir(new Postagem(
             2,
@@ -221,7 +238,8 @@ export class RepositorioDePostagens {
             'É essencial acompanhar essas mudanças para não ficarmos para trás. ' +
             'A tecnologia tem o poder de transformar o mundo em que vivemos.',
             this.gerarDataAleatoria(),
-            15
+            15,
+            0
         ));
         this.incluir(new Postagem(
             3,
@@ -231,7 +249,8 @@ export class RepositorioDePostagens {
             'A sustentabilidade não é uma opção, mas uma necessidade urgente. ' +
             'Devemos agir agora para garantir um planeta habitável no futuro.',
             this.gerarDataAleatoria(),
-            20
+            20,
+            0
         ));
         this.incluir(new Postagem(
             4,
@@ -241,7 +260,8 @@ export class RepositorioDePostagens {
             'Pequenos hábitos saudáveis podem fazer uma grande diferença a longo prazo. ' +
             'Não negligencie seu bem-estar, ele é a chave para uma vida plena.',
             this.gerarDataAleatoria(),
-            8
+            8,
+            0
         ));
         this.incluir(new Postagem(
             5,
@@ -251,7 +271,8 @@ export class RepositorioDePostagens {
             'A digitalização não é apenas uma tendência, mas uma necessidade para a sobrevivência no mercado. ' +
             'O futuro é digital, e devemos nos preparar para ele.',
             this.gerarDataAleatoria(),
-            12
+            12,
+            0
         ));
         this.incluir(new Postagem(
             6,
@@ -261,7 +282,8 @@ export class RepositorioDePostagens {
             'No entanto, também trazem desafios, como a disseminação de informações falsas. ' +
             'É crucial usar essas ferramentas de forma responsável e consciente.',
             this.gerarDataAleatoria(),
-            7
+            7,
+            0
         ));
         this.incluir(new Postagem(
             7,
@@ -271,7 +293,8 @@ export class RepositorioDePostagens {
             'A integração de tecnologia no transporte pode melhorar a qualidade de vida nas cidades. ' +
             'Investir em mobilidade sustentável é essencial para um futuro melhor.',
             this.gerarDataAleatoria(),
-            9
+            9,
+            0
         ));
         this.incluir(new Postagem(
             8,
@@ -281,7 +304,8 @@ export class RepositorioDePostagens {
             'Entender como o dinheiro funciona é o primeiro passo para uma vida financeira saudável. ' +
             'Planejamento e controle são as chaves para o sucesso financeiro.',
             this.gerarDataAleatoria(),
-            5
+            5,
+            0
         ));
         this.incluir(new Postagem(
             9,
@@ -291,7 +315,8 @@ export class RepositorioDePostagens {
             'Fazer escolhas alimentares conscientes pode prevenir doenças e melhorar a qualidade de vida. ' +
             'Invista em uma alimentação rica em nutrientes e pobre em alimentos processados.',
             this.gerarDataAleatoria(),
-            11
+            11,
+            0
         )); 
         this.incluir(new Postagem(
             10,
@@ -301,7 +326,8 @@ export class RepositorioDePostagens {
             'A pesquisa e o desenvolvimento em saúde estão em um ritmo acelerado, trazendo esperança para muitas doenças. ' +
             'O futuro da saúde está cada vez mais integrado com a tecnologia.',
             this.gerarDataAleatoria(),
-            13
+            13,
+            0
         ));
     }
 
