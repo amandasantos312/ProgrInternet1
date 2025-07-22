@@ -25,7 +25,6 @@
         </header>
         <main>
             <section id="formulario">
-                
                 <div class = "campos">
                     <h2>Nova Postagem</h2>
                     <label for="titulo">Título:</label>
@@ -36,11 +35,33 @@
                     <br>
                     <button id="botaoNovaPostagem">Incluir Postagem</button>
                 </div>
-                
             </section>
 
             <section id="postagens">
                 <!-- As postagens serão inseridas aqui dinamicamente -->
+                 <template id="post-template">
+                    <article class="postagem">
+                        <h2 class="postagem-titulo"></h2>
+                        <p class="postagem-conteudo"></p>
+
+                        <div class="postagem-metadados">
+                            <span class="post-data"></span>
+                            <span class="post-curtidas"></span>
+                            <button class="btn-curtir">Curtir</button>
+                        </div>
+                        
+                        <div class="comentarios-container">
+                            <h3>Comentários</h3>
+                            <div class="comentarios-lista"></div>
+                            
+                            <form class="comentario-form">
+                                <input type="text" class="comentario-autor" placeholder="Seu nome" required>
+                                <textarea class="comentario-conteudo" placeholder="Seu comentário" required></textarea>
+                                <button type="submit">Adicionar Comentário</button>
+                            </form>
+                        </div>
+                    </article>
+                </template>
             </section>
         </main>
         <footer>
