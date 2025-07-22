@@ -48,6 +48,9 @@
                             <span class="post-data"></span>
                             <span class="post-curtidas"></span>
                             <button class="btn-curtir">Curtir</button>
+                            <button class="btn-deslike">Deslike</button>
+                            <button class="btn-excluir">Excluir</button>
+                            <button class="btn-editar">Editar</button>
                         </div>
                         
                         <div class="comentarios-container">
@@ -57,7 +60,7 @@
                             <form class="comentario-form">
                                 <input type="text" class="comentario-autor" placeholder="Seu nome" required>
                                 <textarea class="comentario-conteudo" placeholder="Seu comentário" required></textarea>
-                                <button type="submit">Adicionar Comentário</button>
+                                <button id="btn-enviar" type="submit">Adicionar Comentário</button>
                             </form>
                         </div>
                     </article>
@@ -66,8 +69,26 @@
         </main>
         <footer>
             <p>&copy; 2024 Social IFPI. Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <a href="https://github.com/amandasantos312" target="_blank">Amanda Vitória Silva Santos</a> e <a href="https://github.com/marianaraujos" target="_blank">Mariana de Araujo Gomes Sousa</a></p>
             <p>Feito com ♥ pela equipe do IFPI.</p>
         </footer>
+
+        <div id="modo-edicao" style="display: none;">
+        <div class="modo-conteudo">
+            <span class="modo-fechar">&times;</span>
+            <h2>Editar Postagem</h2>
+            <form id="form-edicao">
+                <input type="hidden" id="edit-post-id">
+                
+                <label for="edit-titulo">Título:</label>
+                <input type="text" id="edit-titulo" required>
+                
+                <label for="edit-conteudo">Conteúdo:</label>
+                <textarea id="edit-conteudo" rows="6" required></textarea>
+                
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
