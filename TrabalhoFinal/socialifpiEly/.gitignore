@@ -1,4 +1,6 @@
-*.json
+package.json
+package-lock.json
+tsconfig.json
 */node_modules
 *.js
 *.js.map
