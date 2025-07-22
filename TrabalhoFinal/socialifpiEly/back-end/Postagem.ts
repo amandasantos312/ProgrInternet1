@@ -6,14 +6,16 @@ export class Postagem {
     private conteudo: string;
     private data: Date;
     private curtidas: number;
+    private descurtidas: number;
     public comentarios: Comentario[];
 
-    constructor(id: number, titulo: string, conteudo: string, data: Date, curtidas: number,) {
+    constructor(id: number, titulo: string, conteudo: string, data: Date, curtidas: number, descurtidas: number) {
         this.id = id;
         this.titulo = titulo;
         this.conteudo = conteudo;
         this.data = data;
         this.curtidas = curtidas;
+        this.descurtidas = descurtidas || 0;
         this.comentarios = [];
     }
 
@@ -37,7 +39,15 @@ export class Postagem {
         return this.curtidas;
     }
 
+    public getDescurtidas(): number {
+        return this.descurtidas;
+    }
+
     public getComentarios(): Comentario[] {
         return this.comentarios;
+    }
+
+    public descurtir(): void {
+        this.descurtidas++;
     }
 }
