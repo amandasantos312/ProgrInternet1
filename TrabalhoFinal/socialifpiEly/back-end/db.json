@@ -5,7 +5,7 @@
         "conteudo": "Entre os dias 20 a 24 de Outubro ocorrerá o maior evento de tecnologia de Teresina!",
         "data": "2025-07-22T14:03:24.155Z",
         "curtidas": 7,
-        "descurtidas": 2,
+        "descurtidas": 3,
         "comentarios": [
             {
                 "id": 1753193036826,
@@ -17,11 +17,11 @@
     },
     {
         "id": 1,
-        "titulo": "A Importância da Educação",
-        "conteudo": "A educação é a base para uma sociedade mais justa e equitativa. Ela promove o desenvolvimento individual e coletivo, permitindo que pessoas realizem seu potencial. Investir em educação é investir no futuro de todos nós.",
+        "titulo": "A Importância da Educação no Brasil",
+        "conteudo": "A educação é a base para uma sociedade mais justa e equitativa. Ela promove o desenvolvimento individual e coletivo, permitindo que pessoas realizem seu potencial. Investir em educação é investir no futuro de todos nós....",
         "data": "2024-11-22T03:00:00.000Z",
         "curtidas": 13,
-        "descurtidas": 0,
+        "descurtidas": 1,
         "comentarios": [
             {
                 "id": 1753189145835,
@@ -40,6 +40,12 @@
                 "autor": "Laurinha",
                 "conteudo": "teste",
                 "data": "2025-07-22T14:02:47.546Z"
+            },
+            {
+                "id": 1753230430867,
+                "autor": "Amanda",
+                "conteudo": "Comentário de teste",
+                "data": "2025-07-23T00:27:10.867Z"
             }
         ]
     },
