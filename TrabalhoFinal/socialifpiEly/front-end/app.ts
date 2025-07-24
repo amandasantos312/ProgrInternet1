@@ -84,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const botaoEditar = document.createElement('button');
                 botaoEditar.className = 'btn-editar';
                 botaoEditar.textContent = 'Editar';
-                // ATENÇÃO: Corrigido para chamar a nova função 'editarPostagem'
                 botaoEditar.addEventListener('click', () => editarPostagem(postagem));
                 
                 const comentariosContainer = document.createElement('div');
